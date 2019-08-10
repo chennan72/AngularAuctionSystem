@@ -1,0 +1,8 @@
+<p>
+  <span (click)="clickStar(i)" *ngFor="let star of stars; let i =index"
+        [class.glyphicon-star-empty]="star"
+        class="glyphicon glyphicon-star glyphicon-star-empty"></span>
+  <!--  屬性綁定：和後台ts文件的數據綁定-->
+  <!--  ngFor語法-->
+  <span>{{rating | number:'1.0-2'}}</span>
+</p>

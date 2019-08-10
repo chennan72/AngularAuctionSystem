@@ -1,0 +1,30 @@
+<form (ngSubmit)="onSearch()" [formGroup]="formModel" novalidate>
+  <div [class.has-error]="formModel.hasError('minlength','title')" class="form-group">
+    <label for="productTitle">Product Name:</label>
+    <input class="form-control" formControlName="title" id="productTitle" placeholder="Product Name" type="text">
+    <span [class.hidden]="!formModel.hasError('minlength','title')" class="help-block">
+      At least 3 letters!
+    </span>
+  </div>
+  <div [class.has-error]="formModel.hasError('positiveNumber','price')" class="form-group">
+    <label for="productPrice">Product Price:</label>
+    <input class="form-control" formControlName="price" id="productPrice" placeholder="Product Price" type="text">
+    <span [class.hidden]="!formModel.hasError('positiveNumber','price')" class="help-block">
+      Price should be positive!
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="productCategory">Product Category:</label>
+    <select class="form-control" formControlName="category" id="productCategory">
+      <option value="-1">All Categories</option>
+      <option *ngFor="let category of categories" [value]="category">
+        {{category}}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary btn-block" type="submit">
+      Search
+    </button>
+  </div>
+</form>

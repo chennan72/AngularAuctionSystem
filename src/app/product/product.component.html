@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-group">
+      <input [formControl]="titleFilter"
+             class="form-control" placeholder="Please type in the product name">
+    </div>
+  </div>
+</div>
+<div *ngFor="let product of products | filter: 'title':keyword" class="col-md-4 col1-sm-4 col-lg-4">
+  <div class="thumbnail">
+    <img [src]="imgUrl"><!--    Angualr的屬性綁定-->
+    <!--  屬性綁定：和後台ts文件的數據綁定，用方括號[]的方式-->
+    <div class="caption">
+      <h4 class="pull-right">${{product.price}}</h4>
+      <h4><a [routerLink]="['/product',product.id]">{{product.title}}</a></h4>
+      <p>{{product.desc}}</p>
+    </div>
+    <div>
+      <!--      子組件app-star從父組件product獲取rating-->
+      <app-stars [rating]="product.rating"></app-stars>
+    </div>
+  </div>
+</div>

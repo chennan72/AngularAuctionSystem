@@ -1,0 +1,98 @@
+<div class="thumbnail">
+  <img src="http://placehold.it/820x230">
+  <div>
+    <!--    <h4 class="pull-right">${{product.price}}</h4>-->
+    <!--    <h4>{{product.title}}</h4>-->
+    <!--    <p>{{product.desc}}</p>-->
+    <h4 class="pull-right">$799</h4>
+    <h4>iPhone 6S Plus</h4>
+    <p>The only thing that's changed is everything</p>
+  </div>
+  <div>
+    <p class="pull-right'">Total Number of Description: {{comments.length}}</p>
+    <!--    <p class="pull-right'">Total Number of Description: 3</p>-->
+    <p>
+      <app-stars [rating]=4.5></app-stars>
+    </p>
+  </div>
+</div>
+
+
+<div class="well">
+  <div>
+    <button (click)="isCommentHidden = !isCommentHidden" class="btn btn-success">Comment</button>
+  </div>
+  <div [hidden]="isCommentHidden">
+    <div>
+      <app-stars [(rating)]="newRating" [readOnly]="false"></app-stars>
+    </div>
+    <div>
+      <textarea [(ngModel)]="newComment"></textarea>
+    </div>
+    <div>
+      <button (click)="addComment()" class="btn-default">Submit</button>
+    </div>
+  </div>
+  <div *ngFor="let comment of comments" class="row">
+    <hr>
+    <div class="col-md-12">
+      <app-stars [rating]="comment.rating"></app-stars>
+      <span>{{comment.user}}</span>
+      <span class="pull-right">{{comment.timestamp}}</span>
+      <p></p>
+      <p>{{comment.content}}</p>
+    </div>
+  </div>
+</div>
+
+<!--<div class="well">-->
+<!--  <div class="row">-->
+<!--    <hr>-->
+<!--    <div class="col-md-12">-->
+<!--      <app-stars [rating]=4.5></app-stars>-->
+<!--      <span>Chou-Chun Yin</span>-->
+<!--      <span class="pull-right">2019-11-08 22:00:08</span>-->
+<!--      <p></p>-->
+<!--      <p>Excellent Product!</p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<div class="well">-->
+<!--  <div class="row">-->
+<!--    <hr>-->
+<!--    <div class="col-md-12">-->
+<!--      <app-stars [rating]=4.0></app-stars>-->
+<!--      <span>Nan Chen</span>-->
+<!--      <span class="pull-right">2019-07-02 20:10:18</span>-->
+<!--      <p></p>-->
+<!--      <p>I actually kinda like this old version :)</p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<div class="well">-->
+<!--  <div class="row">-->
+<!--    <hr>-->
+<!--    <div class="col-md-12">-->
+<!--      <app-stars [rating]=4.5></app-stars>-->
+<!--      <span>Ta-Yu Chien</span>-->
+<!--      <span class="pull-right">2019-06-23 17:15:52</span>-->
+<!--      <p></p>-->
+<!--      <p>Far beyond my expectation!</p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<div class="well">-->
+<!--  <div class="row">-->
+<!--    <hr>-->
+<!--    <div class="col-md-12">-->
+<!--      <app-stars [rating]=3.5></app-stars>-->
+<!--      <span>Yen-Chih Tsou</span>-->
+<!--      <span class="pull-right">2019-01-11 08:45:15</span>-->
+<!--      <p></p>-->
+<!--      <p>Well just ok.</p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
